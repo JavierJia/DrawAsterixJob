@@ -1,0 +1,202 @@
+{
+ "connectors": [
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:0]",
+    "id": "CDID:0",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:5",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:0",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:1]",
+    "id": "CDID:1",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:0",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:4",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:2]",
+    "id": "CDID:2",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:4",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:1",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:3]",
+    "id": "CDID:3",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:1",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:2",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:4]",
+    "id": "CDID:4",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:2",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:7",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.MToNPartitioningMergingConnectorDescriptor[CDID:5]",
+    "id": "CDID:5",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.MToNPartitioningMergingConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:7",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:6",
+   "out-operator-port": 0
+  },
+  {
+   "connector": {
+    "display-name": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor[CDID:6]",
+    "id": "CDID:6",
+    "java-class": "edu.uci.ics.hyracks.dataflow.std.connectors.OneToOneConnectorDescriptor"
+   },
+   "in-operator-id": "ODID:6",
+   "in-operator-port": 0,
+   "out-operator-id": "ODID:3",
+   "out-operator-port": 0
+  }
+ ],
+ "operators": [
+  {
+   "display-name": "edu.uci.ics.hyracks.storage.am.btree.dataflow.BTreeSearchOperatorDescriptor[ODID:0]",
+   "id": "ODID:0",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.storage.am.btree.dataflow.BTreeSearchOperatorDescriptor",
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.dataflow.std.sort.ExternalSortOperatorDescriptor[ODID:1]",
+   "id": "ODID:1",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.dataflow.std.sort.ExternalSortOperatorDescriptor",
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.storage.am.btree.dataflow.BTreeSearchOperatorDescriptor[ODID:2]",
+   "id": "ODID:2",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.storage.am.btree.dataflow.BTreeSearchOperatorDescriptor",
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.dataflow.std.result.ResultWriterOperatorDescriptor[ODID:3]",
+   "id": "ODID:3",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.dataflow.std.result.ResultWriterOperatorDescriptor",
+   "out-arity": 0,
+   "partition-constraints": {"count": "1"}
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor[ODID:4]",
+   "id": "ODID:4",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor",
+   "micro-operators": ["stream-project [1, 2]"],
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor[ODID:5]",
+   "id": "ODID:5",
+   "in-arity": 0,
+   "java-class": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor",
+   "micro-operators": [
+    "ets",
+    "assign [0] := [edu.uci.ics.hyracks.algebricks.core.algebra.expressions.LogicalExpressionJobGenToExpressionRuntimeProviderAdapter$ScalarEvaluatorFactoryAdapter@68b4b14f]"
+   ],
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor[ODID:6]",
+   "id": "ODID:6",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor",
+   "micro-operators": ["stream-project [2]"],
+   "out-arity": 1,
+   "partition-constraints": {"count": "1"}
+  },
+  {
+   "display-name": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor[ODID:7]",
+   "id": "ODID:7",
+   "in-arity": 1,
+   "java-class": "edu.uci.ics.hyracks.algebricks.runtime.operators.meta.AlgebricksMetaOperatorDescriptor",
+   "micro-operators": ["stream-select edu.uci.ics.hyracks.algebricks.core.algebra.expressions.LogicalExpressionJobGenToExpressionRuntimeProviderAdapter$ScalarEvaluatorFactoryAdapter@a839316"],
+   "out-arity": 1,
+   "partition-constraints": {
+    "count": "4",
+    "location": {
+     "0": "nc2",
+     "1": "nc2",
+     "2": "nc1",
+     "3": "nc1"
+    }
+   }
+  }
+ ]
+}
